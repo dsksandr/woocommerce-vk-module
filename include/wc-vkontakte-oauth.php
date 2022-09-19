@@ -1,7 +1,7 @@
 <?php
 
 define( 'SHORTINIT', true );
-require_once( $_SERVER['DOCUMENT_ROOT'] . '/wp-load.php' );
+require_once( $_SERVER['DOCUMENT_ROOT'] . '/wp/wp-load.php' );
 
 
 if ( empty( $_GET['state'] ) || $_GET['state'] !== get_option( 'vkontakte_state' ) ) {

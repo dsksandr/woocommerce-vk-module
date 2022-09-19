@@ -210,9 +210,9 @@ if ( ! class_exists( 'WC_VKontakte_Base' ) ) {
 		 * @return array
 		 */
 		public static function get_vk_logs() {
-			$short_log_path  = WP_PLUGIN_DIR . '/woo-vkontakte/logs/vk_short.log';
-			$detail_log_path = WP_PLUGIN_DIR . '/woo-vkontakte/logs/vk_detailed_logs.log';
-			$detail_log_url  = WP_PLUGIN_URL . '/woo-vkontakte/logs/vk_detailed_logs.log';
+			$short_log_path  = VK_MODULE_PLUGIN_DIR . '/logs/vk_short.log';
+			$detail_log_path = VK_MODULE_PLUGIN_DIR . '/logs/vk_detailed_logs.log';
+			$detail_log_url  = VK_MODULE_PLUGIN_URL . '/logs/vk_detailed_logs.log';
 
 			return array(
 				'short_log'       => file_exists( $short_log_path ) ? file_get_contents( $short_log_path ) : '',
@@ -225,7 +225,7 @@ if ( ! class_exists( 'WC_VKontakte_Base' ) ) {
 		 * Clear short logs
 		 */
 		public function clear_vk_logs() {
-			$handle = fopen( WP_PLUGIN_DIR . '/woo-vkontakte/logs/vk_short.log', 'w+' );
+			$handle = fopen( VK_MODULE_PLUGIN_DIR . '/logs/vk_short.log', 'w+' );
 			fclose( $handle );
 		}
 
@@ -298,12 +298,12 @@ if ( ! class_exists( 'WC_VKontakte_Base' ) ) {
 		 * @return bool
 		 */
 		private function checkModifiedCategoryList( $category_list_current ) {
-			if ( file_exists( WP_PLUGIN_DIR . '/woo-vkontakte/files/category_setting.json' ) ) {
-				$category_list = json_decode( file_get_contents( WP_PLUGIN_DIR . '/woo-vkontakte/files/category_setting.json' ), true );
+			if ( file_exists( VK_MODULE_PLUGIN_DIR . '/files/category_setting.json' ) ) {
+				$category_list = json_decode( file_get_contents( VK_MODULE_PLUGIN_DIR . '/files/category_setting.json' ), true );
 			}
 
 			if ( empty( $category_list ) || $category_list != $category_list_current ) {
-				file_put_contents( WP_PLUGIN_DIR . '/woo-vkontakte/files/category_setting.json', json_encode( $category_list_current ) );
+				file_put_contents( VK_MODULE_PLUGIN_DIR . '/files/category_setting.json', json_encode( $category_list_current ) );
 
 				return true;
 			}
@@ -502,7 +502,7 @@ if ( ! class_exists( 'WC_VKontakte_Base' ) ) {
 			$response = $this->apiClient->methods()->groups_addCallbackServer(
 				array(
 					'group_id'   => static::$options_oauth['id_group'],
-					'url'        => WP_PLUGIN_URL . '/woo-vkontakte/include/wc-vkontakte-events.php',
+					'url'        => VK_MODULE_PLUGIN_URL . '/include/wc-vkontakte-events.php',
 					'title'      => substr( get_option( 'blogname' ), 0, 14 ),
 					'secret_key' => static::$options_oauth['secret_key']
 				)
@@ -587,7 +587,7 @@ if ( ! class_exists( 'WC_VKontakte_Base' ) ) {
 
 			$options = get_option( 'vkontakte_oauth_settings' );
 
-			$options['redirect_uri'] = WP_PLUGIN_URL . '/woo-vkontakte/include/wc-vkontakte-oauth.php';
+			$options['redirect_uri'] = VK_MODULE_PLUGIN_URL . '/include/wc-vkontakte-oauth.php';
 			$options['plugin_url']   = get_site_url() . '/wp-admin/admin.php?page=wc-settings&tab=integration&section=integration-vkontakte';
 
 			$response_type = VKOAuthUserScope::CODE;

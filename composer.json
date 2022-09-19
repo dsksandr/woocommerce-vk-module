@@ -1,4 +1,6 @@
 {
     "name": "dsksandr/woocommerce-vk-module",
-    "type": "wordpress-plugin"
+    "version": "1.0.1",
+    "type": "wordpress-plugin",
+    "description": "Integration plugin for WooCommerce & VKontakte"
 }

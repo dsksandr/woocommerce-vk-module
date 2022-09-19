@@ -336,7 +336,7 @@ if ( ! class_exists( 'WC_VKontakte_Export' ) ) :
 						if ( $image_id != false ) {
 							$data['main_photo_id'] = $image_id;
 						} else {
-							$data['main_photo_id'] = (int) $this->getImageId( WP_PLUGIN_DIR . '/woo-vkontakte/files/no-photo.png', $offer['productId'] . '*' . $offerId, 'product_main_photo_id' );
+							$data['main_photo_id'] = (int) $this->getImageId( VK_MODULE_PLUGIN_DIR . '/files/no-photo.png', $offer['productId'] . '*' . $offerId, 'product_main_photo_id' );
 						}
 					}
 
@@ -394,7 +394,7 @@ if ( ! class_exists( 'WC_VKontakte_Export' ) ) :
 				unset( $productsForExport[ $key ] );
 			}
 
-			file_put_contents( WP_PLUGIN_DIR . '/woo-vkontakte/files/products_for_export.json', json_encode( $productsForExport ) );
+			file_put_contents( VK_MODULE_PLUGIN_DIR . '/files/products_for_export.json', json_encode( $productsForExport ) );
 		}
 
 		/**

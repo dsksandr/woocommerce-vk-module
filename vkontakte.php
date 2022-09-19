@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Version:                 1.0.0
+ * Version:                 1.0.1
  * WC requires at least:    3.0
  * WC tested up to:         4.7.1
  * Plugin Name:             WooCommerce VKontakte
@@ -16,6 +16,10 @@ if ( ! defined( 'ABSPATH' ) || ! function_exists( 'add_action' ) ) {
 }
 
 if ( ! class_exists( 'WC_Integration_VKontakte' ) ) :
+
+    $plugin_name = '/woocommerce-vk-module/';
+    define('VK_MODULE_PLUGIN_DIR', WP_PLUGIN_DIR . $plugin_name);
+    define('VK_MODULE_PLUGIN_URL', WP_PLUGIN_URL . $plugin_name);
 
 	/**
 	 * Class WC_Integration_VKontakte
@@ -127,7 +131,7 @@ if ( ! class_exists( 'WC_Integration_VKontakte' ) ) :
 		 * @return string
 		 */
 		public static function checkCustomFile( $file ) {
-			$wooPath        = WP_PLUGIN_DIR . '/woo-vkontakte/' . $file;
+			$wooPath        = VK_MODULE_PLUGIN_DIR . $file;
 			$withoutInclude = WP_CONTENT_DIR . '/vkontakte-custom/' . str_replace( 'include/', '', $file );
 
 			if ( file_exists( $withoutInclude ) ) {

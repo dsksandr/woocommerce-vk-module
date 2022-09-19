@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Version:                 1.0.2
+ * Version:                 1.0.3
  * WC requires at least:    3.0
  * WC tested up to:         4.7.1
  * Plugin Name:             WooCommerce VKontakte

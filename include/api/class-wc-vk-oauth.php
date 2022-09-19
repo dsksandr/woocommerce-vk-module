@@ -7,7 +7,6 @@ if ( ! class_exists( 'VKOAuth' ) ) {
 	 * Class VKOAuth
 	 */
 	class VKOAuth {
-//		const VERSION = '5.101';
 		const VERSION = '5.131';
 
 		const PARAM_VERSION = 'v';

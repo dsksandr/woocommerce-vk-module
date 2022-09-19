@@ -8,8 +8,8 @@ if ( ! class_exists( 'VKApiClient' ) ) {
 	 */
 	class VKApiClient {
 
-		const API_VERSION = 5.131;
-		const CALLBACK_API_VERSION = 5.126;
+		const API_VERSION = '5.131';
+		const CALLBACK_API_VERSION = '5.126';
 		const API_HOST = 'https://api.vk.com/method';
 
 		/**
